@@ -1,6 +1,7 @@
 # RISC-V加法处理器
 
 基于Verilog/chisel的RISC-V RV32I处理器实现，功能主要为算术和逻辑运算
+主包太拉了，跟Kimi老师俩人整力竭了勉强搞了个半成品
 
 ## 项目结构
 riscv-add-processor/
