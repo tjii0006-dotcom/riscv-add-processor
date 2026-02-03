@@ -1,0 +1,457 @@
+$date
+2026-02-03T14:55+0000
+$end
+$version
+0.2
+$end
+$comment
+
+$end
+$timescale 1ns  $end
+$scope module Core $end
+ $var wire 32 " io_instrData $end
+ $var wire 32 ' io_dataAddr $end
+ $var wire 1 ) io_dataRen $end
+ $var wire 32 4 datapath_pc $end
+ $var wire 32 5 datapath_aluResult $end
+ $var wire 10 ? branchTarget_lo_hi $end
+ $var wire 1 H regFile $end
+ $var wire 12 M jumpTarget_lo $end
+ $var wire 20 h branchTarget_hi_hi $end
+ $var wire 4 m io_dataMask $end
+ $var wire 32 r nextPc $end
+ $var wire 32 x jumpTarget $end
+ $var wire 1 } alu $end
+ $var wire 1 ~ clock $end
+ $var wire 12 "% jumpTarget_hi_hi $end
+ $var wire 1 "+ control $end
+ $var wire 32 "- io_instrAddr $end
+ $var wire 32 "2 aluIn1 $end
+ $var wire 32 "3 aluIn2 $end
+ $var wire 32 ": branchTarget $end
+ $var wire 32 "; io_dataWrite $end
+ $var wire 11 "= jumpTarget_lo_hi $end
+ $var wire 32 "> datapath_memData $end
+ $var wire 5 "? datapath_regWriteAddr $end
+ $var wire 32 "D datapath_regWriteData $end
+ $var wire 11 "F branchTarget_lo $end
+ $var wire 32 "P io_dataRead $end
+ $var wire 20 "Y jumpTarget_hi $end
+ $var wire 21 "Z branchTarget_hi $end
+ $var wire 1 "\ reset $end
+ $var wire 1 "` io_dataWen $end
+ $var wire 32 "e finalAluIn2 $end
+ $var wire 32 "f datapath_instr_bits $end
+ $var wire 32 "k datapath_regRead1 $end
+ $var wire 32 "m datapath_regRead2 $end
+ $var wire 32 "p io_pcDebug $end
+ $var wire 32 "q pcReg $end
+  $scope module control $end
+   $var wire 1 # io_signals_sig_4_memWrite $end
+   $var wire 1 $ io_signals_sig_7_aluSrc $end
+   $var wire 1 & io_signals_sig_memWrite $end
+   $var wire 1 ( io_signals_sig_3_aluSrc $end
+   $var wire 1 2 defaultSignals_aluSrc $end
+   $var wire 1 3 io_signals_memWrite $end
+   $var wire 1 6 io_signals_sig_2_jump $end
+   $var wire 1 9 io_signals_sig_6_jump $end
+   $var wire 1 : io_signals_sig_5_regWrite $end
+   $var wire 1 ; io_signals_sig_3_branch $end
+   $var wire 1 < io_signals_sig_7_branch $end
+   $var wire 4 > io_signals_sig_5_aluOp $end
+   $var wire 1 @ io_signals_sig_4_memToReg $end
+   $var wire 1 A io_signals_regWrite $end
+   $var wire 4 B io_signals_sig_3_aluOp $end
+   $var wire 1 C io_signals_sig_4_regWrite $end
+   $var wire 1 D defaultSignals_jump $end
+   $var wire 1 G io_signals_sig_memRead $end
+   $var wire 1 I io_signals_sig_3_memRead $end
+   $var wire 1 J defaultSignals_memWrite $end
+   $var wire 1 N io_signals_sig_memToReg $end
+   $var wire 1 T io_signals_sig_8_memToReg $end
+   $var wire 1 Z defaultSignals_branch $end
+   $var wire 1 [ io_signals_sig_5_memWrite $end
+   $var wire 1 ` io_signals_sig_8_memWrite $end
+   $var wire 1 i defaultSignals_regWrite $end
+   $var wire 1 j io_signals_sig_regWrite $end
+   $var wire 1 l io_signals_sig_6_aluSrc $end
+   $var wire 1 o defaultSignals_memToReg $end
+   $var wire 4 p io_signals_sig_7_aluOp $end
+   $var wire 1 q io_signals_sig_5_jump $end
+   $var wire 1 s io_signals_sig_7_memToReg $end
+   $var wire 1 t io_signals_sig_2_memToReg $end
+   $var wire 1 v io_signals_branch $end
+   $var wire 1 y io_signals_sig_7_memWrite $end
+   $var wire 4 z io_signals_sig_aluOp $end
+   $var wire 4 { io_signals_sig_6_aluOp $end
+   $var wire 1 | io_signals_aluSrc $end
+   $var wire 4 "# io_signals_aluOp $end
+   $var wire 4 "$ io_signals_sig_8_aluOp $end
+   $var wire 1 "& io_signals_sig_3_regWrite $end
+   $var wire 1 "' io_signals_sig_4_memRead $end
+   $var wire 1 "( io_signals_sig_1_branch $end
+   $var wire 1 ") io_signals_sig_6_branch $end
+   $var wire 1 "* io_signals_sig_7_jump $end
+   $var wire 1 ", io_signals_sig_6_regWrite $end
+   $var wire 1 ". io_signals_sig_7_regWrite $end
+   $var wire 1 "0 io_signals_sig_5_memRead $end
+   $var wire 1 "1 io_signals_sig_5_aluSrc $end
+   $var wire 1 "4 io_signals_sig_1_aluSrc $end
+   $var wire 1 "5 io_signals_sig_6_memToReg $end
+   $var wire 4 "6 io_signals_sig_4_aluOp $end
+   $var wire 1 "7 io_signals_sig_1_memToReg $end
+   $var wire 1 "8 io_signals_sig_8_memRead $end
+   $var wire 1 "9 io_signals_memRead $end
+   $var wire 1 "< io_signals_sig_2_memRead $end
+   $var wire 3 "@ io_funct3 $end
+   $var wire 1 "A io_signals_sig_2_regWrite $end
+   $var wire 7 "B io_funct7 $end
+   $var wire 1 "C io_signals_sig_branch $end
+   $var wire 1 "E io_signals_sig_2_memWrite $end
+   $var wire 1 "G io_signals_sig_1_memWrite $end
+   $var wire 1 "H io_signals_sig_5_memToReg $end
+   $var wire 1 "I io_signals_sig_8_regWrite $end
+   $var wire 4 "J io_signals_sig_1_aluOp $end
+   $var wire 1 "K io_signals_sig_2_branch $end
+   $var wire 1 "L io_signals_sig_5_branch $end
+   $var wire 1 "N io_signals_sig_4_jump $end
+   $var wire 1 "O io_signals_sig_aluSrc $end
+   $var wire 4 "Q io_signals_sig_2_aluOp $end
+   $var wire 1 "R io_signals_sig_8_aluSrc $end
+   $var wire 1 "S io_signals_sig_1_regWrite $end
+   $var wire 1 "T io_signals_sig_4_aluSrc $end
+   $var wire 4 "U defaultSignals_aluOp $end
+   $var wire 1 "V io_signals_sig_1_memRead $end
+   $var wire 1 "W io_signals_sig_2_aluSrc $end
+   $var wire 1 "X io_signals_sig_3_jump $end
+   $var wire 1 "[ defaultSignals_memRead $end
+   $var wire 1 "] io_signals_sig_6_memRead $end
+   $var wire 1 "^ io_signals_sig_4_branch $end
+   $var wire 1 "_ io_signals_sig_8_branch $end
+   $var wire 1 "a io_signals_sig_jump $end
+   $var wire 1 "b io_signals_sig_7_memRead $end
+   $var wire 1 "c io_signals_sig_8_jump $end
+   $var wire 1 "d io_signals_memToReg $end
+   $var wire 7 "g io_opcode $end
+   $var wire 1 "h io_signals_sig_3_memToReg $end
+   $var wire 1 "i io_signals_jump $end
+   $var wire 1 "j io_signals_sig_6_memWrite $end
+   $var wire 1 "n io_signals_sig_3_memWrite $end
+   $var wire 1 "o io_signals_sig_1_jump $end
+  $upscope $end
+  $scope module alu $end
+   $var wire 32 % io_out $end
+   $var wire 32 K io_in1 $end
+   $var wire 32 L io_in2 $end
+   $var wire 4 g io_op $end
+   $var wire 5 n shamt $end
+   $var wire 1 w io_zero $end
+  $upscope $end
+  $scope module regFile $end
+   $var wire 32 ! regs_31 $end
+   $var wire 32 * regs_5 $end
+   $var wire 32 + regs_4 $end
+   $var wire 32 , regs_3 $end
+   $var wire 32 - regs_2 $end
+   $var wire 32 . regs_9 $end
+   $var wire 32 / regs_8 $end
+   $var wire 32 0 regs_7 $end
+   $var wire 32 1 regs_6 $end
+   $var wire 32 7 regs_1 $end
+   $var wire 32 8 regs_0 $end
+   $var wire 1 = reset $end
+   $var wire 5 E io_readAddr2 $end
+   $var wire 5 F io_readAddr1 $end
+   $var wire 32 O regs_10 $end
+   $var wire 32 P regs_11 $end
+   $var wire 32 Q regs_12 $end
+   $var wire 32 R regs_13 $end
+   $var wire 32 S regs_14 $end
+   $var wire 32 U regs_15 $end
+   $var wire 32 V regs_16 $end
+   $var wire 32 W regs_17 $end
+   $var wire 32 X regs_18 $end
+   $var wire 32 Y regs_19 $end
+   $var wire 32 \ regs_20 $end
+   $var wire 32 ] regs_21 $end
+   $var wire 32 ^ regs_22 $end
+   $var wire 32 _ regs_23 $end
+   $var wire 32 a regs_24 $end
+   $var wire 32 b regs_25 $end
+   $var wire 32 c regs_26 $end
+   $var wire 32 d regs_27 $end
+   $var wire 32 e regs_28 $end
+   $var wire 32 f regs_29 $end
+   $var wire 32 k regs_30 $end
+   $var wire 1 u clock $end
+   $var wire 32 "! io_readData2 $end
+   $var wire 32 "" io_readData1 $end
+   $var wire 32 "/ io_writeData $end
+   $var wire 5 "M io_writeAddr $end
+   $var wire 1 "l io_writeEn $end
+  $upscope $end
+$upscope $end
+$enddefinitions $end
+$dumpvars
+b00000000000000000000000000000000 "/
+b000000000000000000000 "Z
+b00000000000000000000000000000000 +
+b00000000000000000000000000000000 *
+b00000000000000000000000000000000 "-
+02
+b00000000000000000000000000000000 -
+03
+b00000000000000000000000000000000 ,
+b00000000000000000000000000000000 "3
+b00000000000000000000000000000000 '
+b00000000000000000000000000000000 "2
+06
+09
+b00000000000000000000000000000000 "
+0:
+b00000000000000000000000000000000 %
+0;
+0<
+0=
+b00000000000000000000000000000000 !
+0@
+b00000000000000000000000000000000 ">
+0A
+0C
+0D
+b00000000000000000000000000000000 7
+0G
+b00000000000000000000000000000000 8
+0H
+0I
+0J
+b00000000000000000000000000000000 5
+b00000000000000000000000000000000 4
+b00000000000000000000000000000000 ";
+b00000000000000000000000000000000 /
+b00000000000000000000000000000000 ":
+b00000000000000000000000000000000 .
+0N
+b00000000000000000000000000000000 1
+b0000000 "B
+b00000000000000000000000000000000 0
+0T
+b00000000000000000000000000000000 "P
+0Z
+b00000000000000000000000000000000 "D
+0[
+0`
+b000000000000 "%
+0i
+0j
+0l
+0o
+0q
+0s
+0t
+0u
+0v
+0w
+0y
+0|
+0}
+0~
+b00000000000000000000 "Y
+0"&
+b00000000000000000000000000000000 ""
+0"'
+b00000000000000000000000000000000 "!
+0"(
+0")
+0"*
+0"+
+0",
+b0000000 "g
+b0000000000 ?
+0".
+0"0
+0"1
+0"4
+0"5
+b00000 "M
+0"7
+0"8
+0"9
+0"<
+0"A
+0"C
+0"E
+0"G
+0"H
+b00000 "?
+0"I
+b00000000000000000000 h
+0"K
+0"L
+0"N
+0"O
+0"R
+0"S
+0"T
+0"V
+0"W
+0"X
+0"[
+0"\
+0"]
+0"^
+0"_
+0"`
+0"a
+0"b
+0"c
+0"d
+b00000 E
+b00000 F
+0"h
+0"i
+0"j
+0"l
+0"n
+0"o
+b0000 "#
+b00000000000000000000000000000000 k
+b0000 "$
+b00000000000 "F
+b0000 B
+b00000000000000000000000000000000 "m
+b00000000000000000000000000000000 f
+b0000 >
+b00000000000000000000000000000000 "q
+b00000000000000000000000000000000 "p
+b00000000000000000000000000000000 c
+b00000000000000000000000000000000 "f
+b00000000000000000000000000000000 b
+b00000000000000000000000000000000 "e
+b00000000000000000000000000000000 e
+b00000000000000000000000000000000 d
+b00000000000000000000000000000000 "k
+b00000000000000000000000000000000 _
+b00000000000000000000000000000000 ^
+b00000000000000000000000000000000 a
+b0000 "6
+b00000000000000000000000000000000 x
+b00000000000000000000000000000000 r
+b00000000000 "=
+b00000 n
+b00000000000000000000000000000000 K
+b00000000000000000000000000000000 L
+b0000 "J
+b0000 m
+b0000 "Q
+b0000 g
+b0000 "U
+b00000000000000000000000000000000 ]
+0#
+b00000000000000000000000000000000 \
+b0000 p
+0$
+b00000000000000000000000000000000 W
+b00000000000000000000000000000000 V
+b000 "@
+0&
+b00000000000000000000000000000000 Y
+b00000000000000000000000000000000 X
+0(
+b000000000000 M
+b00000000000000000000000000000000 S
+0)
+b00000000000000000000000000000000 R
+b0000 z
+b00000000000000000000000000000000 U
+b0000 {
+b00000000000000000000000000000000 O
+b00000000000000000000000000000000 Q
+b00000000000000000000000000000000 P
+$end
+#0
+1"b
+1C
+1"&
+1")
+1".
+1"1
+1"4
+1"A
+1`
+1$
+1(
+1j
+1"N
+b1111 m
+1"R
+1q
+1"S
+b00000000000000000000000000000100 r
+1s
+1"W
+1w
+1:
+1"\
+1=
+#1
+b10000000000000000000000000000100 r
+b10000000000000000000000000000000 4
+1u
+b10000000000000000000000000000000 x
+b10000000000000000000000000000000 ":
+b10000000000000000000000000000000 "-
+1~
+b10000000000000000000000000000000 "p
+b10000000000000000000000000000000 "q
+#6
+1A
+b00010010001101000101000000000000 "e
+b00010010001101000101000010110111 "f
+b00011 E
+b0110111 "g
+b01000 F
+1"l
+b00010010001101000101000000000000 L
+b100100100010 M
+b00010010001101000101000000000000 "/
+b00000000000000000000000100100011 "3
+b10000000000000000000100100100000 ":
+b10010010001 "=
+b00001 "?
+b101 "@
+b0001001 "B
+b00010010001101000101000010110111 "
+b00010010001101000101000000000000 "D
+b00100100000 "F
+b00010010001101000101000000000000 %
+b00010010001101000101000000000000 '
+b0110 "J
+b00001 "M
+b00010010001101000101000000000000 5
+0u
+0w
+b00000000000001000101 "Y
+b10000000000001000101100100100010 x
+b000000000000000000001 "Z
+b0110 z
+0"\
+1|
+0=
+0~
+b0010010000 ?
+#11
+b10000000000000000000000000001000 r
+b10000000000000000000000000000100 4
+1u
+b00010010001101000101000000000000 7
+b10000000000001000101100100100110 x
+b10000000000000000000100100100100 ":
+b10000000000000000000000000000100 "-
+1~
+b10000000000000000000000000000100 "p
+b10000000000000000000000000000100 "q
+#16
+b00000000000000000000000000000000 "
+0u
+0~

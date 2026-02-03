@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/home/jitao/riscv-add-processor/hardware/chisel/src/test/scala/riscv/CoreTest.scala:42:38: value L is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m      c.io.pcDebug.expect(0x8000000C.L.U)[0m
+[0m[[0m[31merror[0m] [0m[0m                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
